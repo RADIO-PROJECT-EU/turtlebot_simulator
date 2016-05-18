@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Show in Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_gazebo)/launch/rviz/radio_sim_amcl.rviz"/> 
+
+</launch>
