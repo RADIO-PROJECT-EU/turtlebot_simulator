@@ -2,7 +2,7 @@
 <launch>
 
   <include file="$(find turtlebot_gazebo)/launch/navigation/gmapping.launch.xml">
-  	<arg name="scan_topic" value="/radio/scan" />
+  	<arg name="scan_topic" value="/hokuyo/scan" />
   </include>
 
 </launch>
