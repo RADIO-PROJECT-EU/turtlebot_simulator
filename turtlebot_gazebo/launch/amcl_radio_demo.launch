@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Map server -->
-  <arg name="map" value="fsl_complete.yaml" />
+  <arg name="map" default="fsl_complete.yaml" />
+  <arg name="scan_topic" default="/hokuyo_base/scan"/>
+
   <!--arg name="map_file" default="$(env TURTLEBOT_GAZEBO_MAP_FILE)"/-->
   <!-- Run the map server with the desired map -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find turtlebot_gazebo)/maps/$(arg map)"/>
@@ -15,11 +17,11 @@
     <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
     <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
-    <arg name="scan_topic" value="/hokuyo/scan"/>
+    <arg name="scan_topic" value="$(arg scan_topic)"/>
   </include>
 
  <!-- Move base -->
   <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
-    <arg name="laser_topic" value="/hokuyo/scan" />
+    <arg name="laser_topic" value="$(arg scan_topic)" />
   </include>
 </launch>

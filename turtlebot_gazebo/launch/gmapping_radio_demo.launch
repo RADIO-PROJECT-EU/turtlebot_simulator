@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <launch>
+   <arg name="scan_topic" default="/hokuyo_base/scan"/>
 
   <include file="$(find turtlebot_gazebo)/launch/navigation/gmapping.launch.xml">
-  	<arg name="scan_topic" value="/hokuyo/scan" />
+  	<arg name="scan_topic" value="$(arg scan_topic)" />
   </include>
 
 </launch>
